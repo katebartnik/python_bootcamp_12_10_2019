@@ -87,3 +87,102 @@ a = (1, 2, 3)
 b = a
 x = ("a",)
 print(x)
+
+
+# set - zbiór
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# suma
+print(A | B)
+print(A.union(B))
+
+# różnica
+print(A - B)
+print(B - A)
+
+# cześć wspólna - koniunkcja
+print(A & B)
+print(A.intersection(B))
+
+# różnica symetryczna
+print(A^B)
+print(A.symmetric_difference(B))
+
+print(dir(A))
+
+print(A)
+A.add(5)
+A.add(5)
+A.add(5)
+A.add(5)
+A.add(5)
+print(A)
+
+
+set() # pusty zbior
+# słownik - dict
+pusty_slownik = {} # lub dict()
+
+
+slownik = {
+    "a": 1,
+    "b": 2
+}
+
+ang_pol = {
+    "cat": "kot",
+    "dog": "pies",
+}
+
+pol_ang = dict(kot="cat", pies="dog")
+
+print(ang_pol)
+print(pol_ang)
+
+print(ang_pol['cat'])  # wybieramy wartosc dla klucza
+ang_pol['bird'] = "ptak"
+print(ang_pol)
+
+print("bird" in ang_pol)
+print(ang_pol.keys())
+print("bird" in ang_pol.keys())
+
+print(ang_pol.values())
+print("ptak" in ang_pol.values())
+
+if 'tree' in ang_pol:
+    ang_pol['tree']
+
+print(ang_pol.get('tree', "Brak w słowniku"))
+print(ang_pol.get('dog'))
+
+liczniki = {}
+
+liczniki['dog'] = liczniki.get('dog', 0) + 1
+liczniki['dog'] = liczniki.get('dog', 0) + 1
+liczniki['dog'] = liczniki.get('dog', 0) + 1
+liczniki['dog'] = liczniki.get('dog', 0) + 1
+liczniki['dog'] = liczniki.get('dog', 0) + 1
+print(liczniki)
+
+# Frozen set
+
+x = frozenset([1, 2, 1, 1])
+
+# namedtuple
+
+from collections import namedtuple
+
+osoba = namedtuple("Osoba", ['imie', 'nazwisko', 'rok_ur'] )
+
+os1 = osoba(imie="Rafał", nazwisko="Korzeniewski", rok_ur=1980)
+
+print(os1)
+print(type(os1))
+print(os1.imie)
+print(os1.nazwisko)
+
+print(dir(os1))
+print(os1.index("Rafał"))
+print(os1[0])
