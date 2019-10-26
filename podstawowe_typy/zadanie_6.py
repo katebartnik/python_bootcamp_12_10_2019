@@ -1,13 +1,13 @@
-import random
+import example_random
 
 DEBUG = False
 # losuje pozycję skarbu
-skarb_x = random.randint(1, 10)
-skarb_y = random.randint(1, 10)
+skarb_x = example_random.randint(1, 10)
+skarb_y = example_random.randint(1, 10)
 
 # losuję pozycję gracza
-gracz_x = random.randint(1, 10)
-gracz_y = random.randint(1, 10)
+gracz_x = example_random.randint(1, 10)
+gracz_y = example_random.randint(1, 10)
 
 # minimalna liczba ruchow po wylosowaniu
 
@@ -45,7 +45,7 @@ while True:
         print("Znalazłeś Skarb!! Brawo")
         break
 
-    if random.randint(1, 5) != 3:
+    if example_random.randint(1, 5) != 3:
         if min_l_po < min_l_przed:
             print("Ciepło")
         else:
@@ -54,8 +54,8 @@ while True:
     liczba_ruchow += 1
     if liczba_ruchow > 2 * min_l_po_wyl:
         # losuje pozycję skarbu
-        skarb_x = random.randint(1, 10)
-        skarb_y = random.randint(1, 10)
+        skarb_x = example_random.randint(1, 10)
+        skarb_y = example_random.randint(1, 10)
         min_l_po_wyl = abs(skarb_x - gracz_x) + abs(skarb_y - gracz_y)
         liczba_ruchow = 0
         print("Jestes gapa. Skarb zmienił swoje położenie!")

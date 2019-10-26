@@ -10,8 +10,8 @@ print('a' in "abecadło")
 #
 help(print)
 
-import random
-print(help(random))
+import example_random
+print(help(example_random))
 
 # operacje aryt
 # +-/* // % **
@@ -30,3 +30,6 @@ elif 1 > 2:
     print("")
 else:
     print("Nóżka zdrowa")
+
+import example_random
+print(example_random.randint(1, 10))
