@@ -15,11 +15,12 @@ for znak in napis:
     if znak == ">":
         czy_zliczac = False
 
-    if czy_zliczac:  # True lub False
+    elif znak == "<":
+        czy_zliczac = True
+
+    elif czy_zliczac:  # True lub False
         licznik += 1
 
-    if znak == "<":
-        czy_zliczac = True
 
 
 print(licznik)
