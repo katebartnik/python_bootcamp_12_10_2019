@@ -1,2 +1,3 @@
-def foo(x):
-    print("Witaj Świecie")
+def foo():
+  print("Hello World")
+
