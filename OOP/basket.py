@@ -4,6 +4,7 @@ class Product:
         self.name = name
         self.price = price
 
+
 class BasketEntry:
     def __init__(self, product: Product, amount: int):
         self.product = product
@@ -15,9 +16,22 @@ class BasketEntry:
     def report(self):
         return f"- {self.product.name} ({self.product.id}), cena: {self.product.price} x {self.amount}\n"
 
+
+class Discount:
+    def __init__(self, amount):
+        self.amount = amount
+
+class ValueDiscount(Discount):  # dziedziczenie
+    # ValueDiscount dziedziczy po Discount
+    pass
+
+class PercentDiscount(Discount):
+    pass
+
 class Basket:
     def __init__(self):
         self.basket_entries = []
+        self.discounts = []
 
     def add_product(self, product: Product, amount: int) -> None:
         # : Product, : int oraz -> None to są adnotacje. S
@@ -47,6 +61,14 @@ class Basket:
         for be in self.basket_entries:
             # total_price += be['product'].price * be['amount']
             total_price += be.count_price()
+
+        # trzeba od tego odjąć upusty
+        value_discount = sum([x.amount for x in self.discounts if isinstance(x, ValueDiscount)])
+        percent_discount = sum([x.amount for x in self.discounts if isinstance(x, PercentDiscount)])
+        total_price -= value_discount
+        if percent_discount:
+            total_price = total_price - total_price/percent_discount
+
         return total_price
 
     def generate_report(self):
@@ -56,4 +78,6 @@ class Basket:
         report += f"W sumie: {self.count_total_price()}\n"
         return report
 
+    def add_discount(self, discount):
+        self.discounts.append(discount)
 # basket.add_product("Woda", "11")

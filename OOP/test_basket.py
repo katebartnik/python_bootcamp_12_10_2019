@@ -1,4 +1,4 @@
-from basket import Basket, Product
+from basket import Basket, Product, ValueDiscount, PercentDiscount
 
 
 def test_basket_initialization():
@@ -18,6 +18,7 @@ def test_add_product_to_basket():
     basket = Basket()
     basket.add_product(product, 5)
 
+
 def test_basket_count_total_price():
     product = Product(1, 'Woda', 10.0)
     basket = Basket()
@@ -26,6 +27,7 @@ def test_basket_count_total_price():
     product = Product(2, 'Piwo', 5)
     basket.add_product(product, 5)
     assert basket.count_total_price() == 50 + 25
+
 
 def test_basket_generate_report():
     product = Product(1, 'Woda', 10.0)
@@ -41,9 +43,20 @@ W sumie: 50.0
 def test_basket_add_discount():
     product = Product(1, 'Woda', 10.0)
     basket = Basket()
-    basket.add_discount(10)
+    discount = ValueDiscount(10)
+    basket.add_discount(discount)
     basket.add_product(product, 5)
     assert basket.count_total_price() == 50 - 10
     product = Product(2, 'Piwo', 5)
     basket.add_product(product, 5)
     assert basket.count_total_price() == 50 + 25 - 10
+
+
+
+def test_basket_add_percent_discount():
+    product = Product(1, 'Woda', 10.0)
+    basket = Basket()
+    discount = PercentDiscount(10)
+    basket.add_discount(discount)
+    basket.add_product(product, 5)
+    assert basket.count_total_price() == 5 * 10 - (5 * 10) / 10
