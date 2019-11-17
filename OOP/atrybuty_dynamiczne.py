@@ -27,3 +27,6 @@ print(os1.czy_pelnoletni)
 
 print(getattr(os1, 'wiek'))
 print(os1.wiek)
+
+if hasattr(os1, 'aaa'):
+    print(getattr(os1, 'aaa'))

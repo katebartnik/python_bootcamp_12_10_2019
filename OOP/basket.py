@@ -1,6 +1,9 @@
 class Product:
-    def __init__(self, id, name, price):
-        self.id = id
+    NEXT_ID = 1
+
+    def __init__(self, name, price):
+        self.id = Product.NEXT_ID
+        Product.NEXT_ID += 1
         self.name = name
         self.price = price
 
@@ -80,4 +83,10 @@ class Basket:
 
     def add_discount(self, discount):
         self.discounts.append(discount)
-# basket.add_product("Woda", "11")
+
+    @staticmethod
+    def with_products(product_list: list):
+        basket = Basket()
+        for p in product_list:
+            basket.add_product(p, 1)
+        return basket
