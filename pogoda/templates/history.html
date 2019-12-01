@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for w in weathers %}
+
+ {{ w.location_name }}: {{ w.temperature }}<br>
+
+{% endfor %}
+
+<a href="/history/download">Pobierz</a>
+{% endblock %}
+

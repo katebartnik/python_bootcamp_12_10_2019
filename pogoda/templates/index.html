@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+    <tr>
+        <td>Lokalizacja: </td>
+        <td>{{location_name}}</td>
+    </tr>
+    <tr>
+        <td>Średnia temperatura: </td>
+        <td>{{weather.the_temp}} C</td>
+    </tr>
+    <tr>
+        <td>Wilgotność powietrza: </td>
+        <td>{{weather.humidity}} %</td>
+    </tr>
+    </table>
+
+    <ol>
+    {% for el in lista %}
+        <li>{{el}}</li>
+    {% endfor %}
+    </ol>
+{% endblock %}
